@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIME GAME</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 3px rgb(226, 130, 146) solid;
+            width: 500px;
+            height: 500px;
+            margin-left: 400px;
+            border-radius: 20px;
+            padding: 20px 50px;
+        }
+        #user{
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <h2>User Input</h2>
+    </label><br>
+    <input type="text" id="user" value="0"><br><br>
+    <label>
+        <h2>Machine Input</h2>
+    </label><br>
+    <input type="text" id="ml"><br><br><br>
+   
+    <h3>Seconds : <span id="t"></span></h3>
+    <h3>User Score: <span id="userScore">0</span></h3>
+    <h3>Machine Score: <span id="machineScore">0</span></h3><br>
+    
+<script>
+let s1=document.getElementById('userScore');
+let s2=document.getElementById('machineScore');
+
+
+function time()
+{
+        var today = new Date();
+        
+        var s = today.getSeconds();
+
+        var time=document.getElementById('t');
+
+        time.innerText=s;
+
+        if(s%5==0)
+        {
+            let ml=document.getElementById("ml");
+
+            ml.value=Math.floor(Math.random() * 100);
+
+            // alert(ml)
+
+
+            let user=document.getElementById('user');
+
+
+            if(ml.value==user.value)
+        {
+            s1.innerHTML=Number(s1.innerHTML)+1
+        }
+        else
+        {
+            s2.innerHTML=Number(s2.innerHTML)+1
+        }
+
+
+
+        }
+       
+        
+}
+setInterval("time()",1000);
+
+        
+       
+    </script>
+</body>
+
+</html>
